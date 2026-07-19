@@ -42,7 +42,7 @@ stdenv.mkDerivation rec {
   src = fetchurl {
     url = "https://pumble.com/download/desktop/linux/Pumble-linux-${version}.deb";
     # Leave this placeholder string; we will let Nix tell us the real hash next
-    hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    hash = "sha256-DvklNsvdxvLrDgf/nf5G1hqbxlLjuC7IVGV/CVbc8Ew=";
   };
 
   nativeBuildInputs = [
@@ -92,18 +92,18 @@ stdenv.mkDerivation rec {
     cp -r opt $out/opt
 
     # Make a symlink to the main binary so Nix adds it to your PATH
-    ln -s $out/opt/Pumble/pumble $out/bin/pumble
+    ln -s $out/opt/Pumble/pumble-desktop $out/bin/pumble-desktop
 
     # Fix up the shortcut file to point to our newly linked path
-    substituteInPlace $out/share/applications/pumble.desktop \
-      --replace "/opt/Pumble/pumble" "$out/bin/pumble"
+    substituteInPlace $out/share/applications/pumble-desktop.desktop \
+      --replace "/opt/Pumble/pumble-desktop" "$out/bin/pumble-desktop"
 
     runHook postInstall
   '';
 
   postFixup = ''
     # Tells the app how to launch default browsers when you click links
-    wrapProgram $out/bin/pumble \
+    wrapProgram $out/bin/pumble-desktop \
       --prefix PATH : ${lib.makeBinPath [ xdg-utils ]}
   '';
 
