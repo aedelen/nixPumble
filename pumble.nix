@@ -42,7 +42,7 @@ stdenv.mkDerivation rec {
   src = fetchurl {
     url = "https://pumble.com/download/desktop/linux/Pumble-linux-${version}.deb";
     # Leave this placeholder string; we will let Nix tell us the real hash next
-    hash = "sha256-DvklNsvdxvLrDgf/nf5G1hqbxlLjuC7IVGV/CVbc8Ew=";
+    hash = "sha256-wkt7LvgQzOH2KgQRQPQQZe2OVzYdKZ3fMjt1LUMt8uU=";
   };
 
   nativeBuildInputs = [
