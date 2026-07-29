@@ -37,7 +37,7 @@
 
 stdenv.mkDerivation rec {
   pname = "pumble-desktop";
-  version = "1.3.32"; # Check pumble.com/apps for the latest version string
+  version = "1.4.6"; # Check pumble.com/apps for the latest version string
 
   src = fetchurl {
     url = "https://pumble.com/download/desktop/linux/Pumble-linux-${version}.deb";

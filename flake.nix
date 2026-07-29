@@ -2,7 +2,6 @@
   description = "A flake for the Pumble desktop messaging application";
 
   inputs = {
-    # Using unstable as Electron apps usually need the latest dependencies
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
   };
 
